@@ -66,7 +66,7 @@ import sys.FileSystem;
 
 		#else
 
-		data = '{"name":null,"assets":"aoy4:sizei11126y4:typey5:IMAGEy9:classNamey23:__ASSET__img_openfl_pngy2:idy16:img%2Fopenfl.pnggoR0i15382R1R2R3y30:__ASSET__img_viking_avatar_jpgR5y23:img%2Fviking_avatar.jpggh","rootPath":null,"version":2,"libraryArgs":[],"libraryType":null}';
+		data = '{"name":null,"assets":"aoy4:sizei11126y4:typey5:IMAGEy9:classNamey23:__ASSET__img_openfl_pngy2:idy16:img%2Fopenfl.pnggoR0i15382R1R2R3y30:__ASSET__img_viking_avatar_jpgR5y23:img%2Fviking_avatar.jpggoR0i489398R1R2R3y28:__ASSET__area_279_279_01_jpgR5y23:area%2F279%2F279_01.jpggoR0i489398R1R2R3y23:__ASSET__area_blank_jpgR5y16:area%2Fblank.jpggh","rootPath":null,"version":2,"libraryArgs":[],"libraryType":null}';
 		manifest = AssetManifest.parse (data, rootPath);
 		library = AssetLibrary.fromManifest (manifest);
 		Assets.registerLibrary ("default", library);
@@ -96,6 +96,8 @@ null
 
 @:keep @:bind #if display private #end class __ASSET__img_openfl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_viking_avatar_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__area_279_279_01_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__area_blank_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__manifest_default_json extends flash.utils.ByteArray { }
 
 
@@ -103,6 +105,8 @@ null
 
 @:keep @:image("assets/img/openfl.png") #if display private #end class __ASSET__img_openfl_png extends lime.graphics.Image {}
 @:keep @:image("assets/img/viking_avatar.jpg") #if display private #end class __ASSET__img_viking_avatar_jpg extends lime.graphics.Image {}
+@:keep @:image("assets/area/279/279_01.jpg") #if display private #end class __ASSET__area_279_279_01_jpg extends lime.graphics.Image {}
+@:keep @:image("assets/area/blank.jpg") #if display private #end class __ASSET__area_blank_jpg extends lime.graphics.Image {}
 @:keep @:file("") #if display private #end class __ASSET__manifest_default_json extends haxe.io.Bytes {}
 
 

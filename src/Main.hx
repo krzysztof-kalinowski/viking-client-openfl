@@ -22,7 +22,7 @@ class Main extends Sprite
 	{
 		var ground = new Ground();
 		addChild(ground);
-		ground.createMap(279, 3, 2); //TODO wyswietlic map w HTMLu
+		ground.createMap(279, 3, 2);
 	}
 
 }

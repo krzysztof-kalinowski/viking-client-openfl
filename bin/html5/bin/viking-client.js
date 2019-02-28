@@ -893,9 +893,9 @@ ApplicationMain.create = function(config) {
 	ManifestResources.init(config);
 	var _this = app.meta;
 	if(__map_reserved["build"] != null) {
-		_this.setReserved("build","69");
+		_this.setReserved("build","1");
 	} else {
-		_this.h["build"] = "69";
+		_this.h["build"] = "1";
 	}
 	var _this1 = app.meta;
 	if(__map_reserved["company"] != null) {
@@ -1384,7 +1384,6 @@ lime_utils_ObjectPool.prototype = {
 		if(!this.__pool.exists(object)) {
 			this.__pool.set(object,false);
 			this.clean(object);
-			this.__pool.set(object,false);
 			if(this.__inactiveObject0 == null) {
 				this.__inactiveObject0 = object;
 			} else if(this.__inactiveObject1 == null) {
@@ -1427,7 +1426,6 @@ lime_utils_ObjectPool.prototype = {
 					this.__inactiveObject1 = this.__inactiveObjectList.pop();
 				}
 			}
-			this.__pool.set(object1,true);
 			this.inactiveObjects--;
 			this.activeObjects++;
 			object = object1;
@@ -1441,15 +1439,9 @@ lime_utils_ObjectPool.prototype = {
 		return object;
 	}
 	,release: function(object) {
-		if(!this.__pool.exists(object)) {
-			lime_utils_Log.error("Object is not a member of the pool",{ fileName : "ObjectPool.hx", lineNumber : 121, className : "lime.utils.ObjectPool", methodName : "release"});
-		} else if(!this.__pool.get(object)) {
-			lime_utils_Log.error("Object has already been released",{ fileName : "ObjectPool.hx", lineNumber : 125, className : "lime.utils.ObjectPool", methodName : "release"});
-		}
 		this.activeObjects--;
 		if(this.__size == null || this.activeObjects + this.inactiveObjects < this.__size) {
 			this.clean(object);
-			this.__pool.set(object,false);
 			if(this.__inactiveObject0 == null) {
 				this.__inactiveObject0 = object;
 			} else if(this.__inactiveObject1 == null) {
@@ -1463,7 +1455,6 @@ lime_utils_ObjectPool.prototype = {
 		}
 	}
 	,__addInactive: function(object) {
-		this.__pool.set(object,false);
 		if(this.__inactiveObject0 == null) {
 			this.__inactiveObject0 = object;
 		} else if(this.__inactiveObject1 == null) {
@@ -1490,7 +1481,6 @@ lime_utils_ObjectPool.prototype = {
 				this.__inactiveObject1 = this.__inactiveObjectList.pop();
 			}
 		}
-		this.__pool.set(object,true);
 		this.inactiveObjects--;
 		this.activeObjects++;
 		return object;
@@ -4375,7 +4365,7 @@ ManifestResources.init = function(config) {
 	var data;
 	var manifest;
 	var library;
-	data = "{\"name\":null,\"assets\":\"aoy4:pathy16:img%2Fopenfl.pngy4:sizei11126y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y23:img%2Fviking_avatar.jpgR2i15382R3R4R5R7R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	data = "{\"name\":null,\"assets\":\"aoy4:pathy16:img%2Fopenfl.pngy4:sizei11126y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y23:img%2Fviking_avatar.jpgR2i15382R3R4R5R7R6tgoR0y23:area%2F279%2F279_01.jpgR2i489398R3R4R5R8R6tgoR0y16:area%2Fblank.jpgR2i489398R3R4R5R9R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -25150,7 +25140,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 647927;
+	this.version = 402638;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -57135,19 +57125,49 @@ openfl_display_Stage.prototype = $extend(openfl_display_DisplayObjectContainer.p
 		return pos.clone();
 	}
 	,onGamepadAxisMove: function(gamepad,axis,value) {
-		openfl_ui_GameInput.__onGamepadAxisMove(gamepad,axis,value);
+		try {
+			openfl_ui_GameInput.__onGamepadAxisMove(gamepad,axis,value);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+		}
 	}
 	,onGamepadButtonDown: function(gamepad,button) {
-		openfl_ui_GameInput.__onGamepadButtonDown(gamepad,button);
+		try {
+			openfl_ui_GameInput.__onGamepadButtonDown(gamepad,button);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+		}
 	}
 	,onGamepadButtonUp: function(gamepad,button) {
-		openfl_ui_GameInput.__onGamepadButtonUp(gamepad,button);
+		try {
+			openfl_ui_GameInput.__onGamepadButtonUp(gamepad,button);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+		}
 	}
 	,onGamepadConnect: function(gamepad) {
-		openfl_ui_GameInput.__onGamepadConnect(gamepad);
+		try {
+			openfl_ui_GameInput.__onGamepadConnect(gamepad);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+		}
 	}
 	,onGamepadDisconnect: function(gamepad) {
-		openfl_ui_GameInput.__onGamepadDisconnect(gamepad);
+		try {
+			openfl_ui_GameInput.__onGamepadDisconnect(gamepad);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+		}
 	}
 	,onJoystickAxisMove: function(joystick,axis,value) {
 	}
@@ -57630,7 +57650,13 @@ openfl_display_Stage.prototype = $extend(openfl_display_DisplayObjectContainer.p
 				var dispatcher = dispatchers[_g];
 				++_g;
 				if(dispatcher.stage == this || dispatcher.stage == null) {
-					dispatcher.__dispatch(event);
+					try {
+						dispatcher.__dispatch(event);
+					} catch( e ) {
+						haxe_CallStack.lastException = e;
+						if (e instanceof js__$Boot_HaxeError) e = e.val;
+						this.__handleError(e);
+					}
 				}
 			}
 		}
@@ -57675,7 +57701,14 @@ openfl_display_Stage.prototype = $extend(openfl_display_DisplayObjectContainer.p
 		}
 	}
 	,__dispatchEvent: function(event) {
-		return openfl_display_DisplayObjectContainer.prototype.__dispatchEvent.call(this,event);
+		try {
+			return openfl_display_DisplayObjectContainer.prototype.__dispatchEvent.call(this,event);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+			return false;
+		}
 	}
 	,__dispatchPendingMouseEvent: function() {
 		if(this.__pendingMouseEvent) {
@@ -57684,45 +57717,58 @@ openfl_display_Stage.prototype = $extend(openfl_display_DisplayObjectContainer.p
 		}
 	}
 	,__dispatchStack: function(event,stack) {
-		var target;
-		var length = stack.length;
-		if(length == 0) {
-			event.eventPhase = 2;
-			target = event.target;
-			target.__dispatch(event);
-		} else {
-			event.eventPhase = 1;
-			event.target = stack[stack.length - 1];
-			var _g1 = 0;
-			var _g = length - 1;
-			while(_g1 < _g) {
-				var i = _g1++;
-				stack[i].__dispatch(event);
-				if(event.__isCanceled) {
-					return;
-				}
-			}
-			event.eventPhase = 2;
-			target = event.target;
-			target.__dispatch(event);
-			if(event.__isCanceled) {
-				return;
-			}
-			if(event.bubbles) {
-				event.eventPhase = 3;
-				var i1 = length - 2;
-				while(i1 >= 0) {
-					stack[i1].__dispatch(event);
+		try {
+			var target;
+			var length = stack.length;
+			if(length == 0) {
+				event.eventPhase = 2;
+				target = event.target;
+				target.__dispatch(event);
+			} else {
+				event.eventPhase = 1;
+				event.target = stack[stack.length - 1];
+				var _g1 = 0;
+				var _g = length - 1;
+				while(_g1 < _g) {
+					var i = _g1++;
+					stack[i].__dispatch(event);
 					if(event.__isCanceled) {
 						return;
 					}
-					--i1;
+				}
+				event.eventPhase = 2;
+				target = event.target;
+				target.__dispatch(event);
+				if(event.__isCanceled) {
+					return;
+				}
+				if(event.bubbles) {
+					event.eventPhase = 3;
+					var i1 = length - 2;
+					while(i1 >= 0) {
+						stack[i1].__dispatch(event);
+						if(event.__isCanceled) {
+							return;
+						}
+						--i1;
+					}
 				}
 			}
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
 		}
 	}
 	,__dispatchTarget: function(target,event) {
-		return target.__dispatchEvent(event);
+		try {
+			return target.__dispatchEvent(event);
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			this.__handleError(e);
+			return false;
+		}
 	}
 	,__drag: function(mouse) {
 		var parent = this.__dragObject.parent;
@@ -72812,7 +72858,7 @@ viking_map_Ground.prototype = $extend(openfl_display_Sprite.prototype,{
 var viking_map_GroundTile = function(map_id,count,row,column) {
 	openfl_display_Sprite.call(this);
 	var prefix = count < 10 ? "_0" : "_";
-	var path = "../../../assets/" + "area/" + map_id + "/" + map_id + prefix + count + ".jpg";
+	var path = "area/" + map_id + "/" + map_id + prefix + count + ".jpg";
 	this.init(path);
 };
 $hxClasses["viking.map.GroundTile"] = viking_map_GroundTile;
@@ -72893,7 +72939,7 @@ while(_g11 < _g2) {
 }
 lime_system_CFFI.available = false;
 lime_system_CFFI.enabled = false;
-lime_utils_Log.level = 4;
+lime_utils_Log.level = 3;
 if(typeof console == "undefined") {
 	console = {}
 }
@@ -75027,11 +75073,9 @@ openfl_utils__$CompressionAlgorithm_CompressionAlgorithm_$Impl_$.LZMA = 1;
 openfl_utils__$CompressionAlgorithm_CompressionAlgorithm_$Impl_$.ZLIB = 2;
 openfl_utils__$Endian_Endian_$Impl_$.BIG_ENDIAN = 0;
 openfl_utils__$Endian_Endian_$Impl_$.LITTLE_ENDIAN = 1;
-viking_config_Path.ASSETS = "../../../assets/";
-viking_config_Path.ASSETS_IMG = "../../../assets/" + "img/";
-viking_config_Path.AREA = "../../../assets/" + "area/";
+viking_config_Path.ASSETS = "";
+viking_config_Path.ASSETS_IMG = "img/";
+viking_config_Path.AREA = "area/";
 viking_config_Settings.MAP_CELL_SIZE = 1024.0;
 ApplicationMain.main();
 })(typeof exports != "undefined" ? exports : typeof window != "undefined" ? window : typeof self != "undefined" ? self : this, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=viking-client.js.map

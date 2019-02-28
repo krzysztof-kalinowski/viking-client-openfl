@@ -39,7 +39,7 @@ import haxe.macro.Expr;
 		
 		ManifestResources.init (config);
 		
-		app.meta["build"] = "69";
+		app.meta["build"] = "1";
 		app.meta["company"] = "Krzysztof Kalinowski";
 		app.meta["file"] = "viking-client";
 		app.meta["name"] = "viking-client";
