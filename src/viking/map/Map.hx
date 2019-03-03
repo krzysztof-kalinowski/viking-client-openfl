@@ -2,6 +2,7 @@ package viking.map;
 
 import flash.geom.Point;
 import openfl.display.DisplayObjectContainer;
+import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import viking.team.Team;
 import viking.team.TeamModel;
@@ -10,7 +11,7 @@ import viking.team.TeamModel;
  * ...
  * @author Krzysztof Kalinowski
  */
-class Map extends DisplayObjectContainer 
+class Map extends Sprite 
 {
 	private var _groundView:Ground;
 	
@@ -32,18 +33,20 @@ class Map extends DisplayObjectContainer
 	}
 	
 	
-	private function createGround(groundData:GroundData):Void {
+	public function createGround(data:GroundData):Void 
+	{
 		_groundView = new Ground();
 		addChild(_groundView);
 		
-		//_groundView.createMap(groundData.idArea, groundData.width, groundData.height, groundData.offsetX2D, groundData.offsetY2D);
+		_groundView.createMap(data.idArea, data.widthInTiles, data.heightInTiles, data.offsetX, data.offsetY);
 		
 		//addGroundListeners();
 	}
 	
-	private function addGroundListeners():void {
-		_groundView.addEventListener(MouseEvent.CLICK, onGroundClickHandler);
-		_groundView.addEventListener(MouseEvent.MOUSE_MOVE, onGroundMoveHandler);
+	private function addGroundListeners():Void 
+	{
+		//_groundView.addEventListener(MouseEvent.CLICK, onGroundClickHandler);
+		//_groundView.addEventListener(MouseEvent.MOUSE_MOVE, onGroundMoveHandler);
 	}
 	
 	private function onGroundClickHandler(e:MouseEvent):Void {

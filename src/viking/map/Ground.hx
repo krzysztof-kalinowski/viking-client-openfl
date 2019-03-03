@@ -9,7 +9,7 @@ import viking.config.Settings;
  */
 class Ground extends Sprite 
 {
-
+	private var _groundObjects:Array<GroundTile>;
 	public function new() 
 	{
 		super();
@@ -20,15 +20,16 @@ class Ground extends Sprite
 		var count:Int = 1;
 		var row:Int = 0;
 		var col:Int = 0;
+		_groundObjects = new Array<GroundTile>();
 		while (row < heightInTiles) 
 		{
 			while (col < widthInTiles) 
 			{
-				var mapObj:GroundTile = new GroundTile(id, count, row, col);
-				mapObj.x = col * Settings.MAP_CELL_SIZE + offsetX;
-				mapObj.y = row * Settings.MAP_CELL_SIZE + offsetY;
-				//_groundObjects.push(mapObj);
-				addChild(mapObj);
+				var tile:GroundTile = new GroundTile(id, count, row, col);
+				tile.x = col * Settings.MAP_CELL_SIZE + offsetX;
+				tile.y = row * Settings.MAP_CELL_SIZE + offsetY;
+				_groundObjects.push(tile);
+				addChild(tile);
 				count++;
 				col++;
 			}
@@ -40,7 +41,13 @@ class Ground extends Sprite
 	
 	public function dispose():Void
 	{
-		
+		for (tile in _groundObjects) 
+		{
+			removeChild(tile);
+			tile.dispose();
+			tile = null;
+		}
+		_groundObjects = null;
 	}
 	
 }

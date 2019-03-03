@@ -6,38 +6,29 @@ package viking.map;
  */
 class GroundData 
 {
-	@:isVar private var groundWidth(get, set):Float;
-	@:isVar private var groundHeight(get, set):Float;
+	public var idArea(get, null):Int;
+	public var nameArea(get, null):String;
+	
+	public var widthInTiles(get, null):Int;
+	public var heightInTiles(get, null):Int;
 
-	@:isVar private var idArea(get, set):Int;
-	@:isVar private var nameArea(get, set):String;
-
-	@:isVar private var offsetX2D(get, set):Float;
-	@:isVar private var offsetY2D(get, set):Float;
+	public var offsetX(get, null):Float;
+	public var offsetY(get, null):Float;
 	
-	public function new() 
+	public function new(idArea:Int, nameArea:String, groundWidth:Int, groundHeight:Int, offsetX:Float, offsetY:Float) 
 	{
-		
+		this.idArea = idArea;
+		this.nameArea = nameArea;
+		this.widthInTiles = groundWidth;
+		this.heightInTiles = groundHeight;
+		this.offsetX = offsetX;
+		this.offsetY = offsetY;
 	}
 	
-	function get_groundWidth():Float 
+	public static function parse(raw:String):GroundData
 	{
-		return groundWidth;
-	}
-	
-	function set_groundWidth(value:Float):Float 
-	{
-		return groundWidth = value;
-	}
-	
-	function get_groundHeight():Float 
-	{
-		return groundHeight;
-	}
-	
-	function set_groundHeight(value:Float):Float 
-	{
-		return groundHeight = value;
+		var a = raw.split(";");
+		return new GroundData(Std.parseInt(a[0]), a[1], Std.parseInt(a[2]), Std.parseInt(a[3]), Std.parseFloat(a[4]), Std.parseFloat(a[5]));
 	}
 	
 	function get_idArea():Int 
@@ -45,39 +36,30 @@ class GroundData
 		return idArea;
 	}
 	
-	function set_idArea(value:Int):Int 
-	{
-		return idArea = value;
-	}
-	
 	function get_nameArea():String 
 	{
 		return nameArea;
 	}
 	
-	function set_nameArea(value:String):String 
+	function get_widthInTiles():Int 
 	{
-		return nameArea = value;
+		return widthInTiles;
 	}
 	
-	function get_offsetX2D():Float 
+	function get_heightInTiles():Int 
 	{
-		return offsetX2D;
+		return heightInTiles;
 	}
 	
-	function set_offsetX2D(value:Float):Float 
+	function get_offsetX():Float 
 	{
-		return offsetX2D = value;
+		return offsetX;
 	}
 	
-	function get_offsetY2D():Float 
+	function get_offsetY():Float 
 	{
-		return offsetY2D;
+		return offsetY;
 	}
 	
-	function set_offsetY2D(value:Float):Float 
-	{
-		return offsetY2D = value;
-	}
-	
+
 }
