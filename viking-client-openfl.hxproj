@@ -6,8 +6,8 @@
     <movie input="" />
     <movie path="project.xml" />
     <movie fps="60" />
-    <movie width="800" />
-    <movie height="480" />
+    <movie width="1280" />
+    <movie height="960" />
     <movie version="0" />
     <movie minorVersion="0" />
     <movie platform="Lime" />
@@ -21,17 +21,15 @@
     <class path="src" />
     <class path="C:\HaxeToolkit\haxe\lib\openfl\8,8,0\externs\flash" />
     <class path="bin\flash\haxe" />
-    <class path="assets\area" />
-    <class path="assets\img" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="openfl=8.8.0&#xA;lime=7.2.1&#xA;AIR_SDK=C:\Workspace\#resources\flex_sdk_4_16_1_fp32_AIR32&#xA;tools=7.2.1&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
+    <option directives="openfl=8.8.0&#xA;lime=7.2.1&#xA;AIR_SDK=C:\Workspace\#resources\flex_sdk_4_16_1_fp32_AIR32&#xA;tools=7.2.1&#xA;no-compilation&#xA;openfl-flash&#xA;openfl-disable-handle-error&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;-swf-version 17" />
+    <option additional="--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;-swf-version 17&#xA;-debug " />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

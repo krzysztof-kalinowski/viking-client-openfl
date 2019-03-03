@@ -37,9 +37,9 @@ class Ground extends Sprite
 		var count:Int = 1;
 		var row:Int = 0;
 		var col:Int = 0;
-		while (row < heightInTiles) 
+		while (row <= heightInTiles) 
 		{
-			while (col < widthInTiles) 
+			while (col <= widthInTiles) 
 			{
 				var mapObj:GroundTile = new GroundTile(id, count, row, col);
 				mapObj.x = col * Settings.MAP_CELL_SIZE + offsetX;
