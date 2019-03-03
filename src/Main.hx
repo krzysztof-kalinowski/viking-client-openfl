@@ -24,7 +24,7 @@ class Main extends Sprite
 	{
 		var ground = new Ground();
 		addChild(ground);
-		ground.createMap(279, 2, 2);
+		ground.createMap(279, 3, 2);
 		trace("stage.width " + stage.width + " stage.height = " + stage.height);
 		trace("stage.stageWidth " + stage.stageWidth + " stage.stageHeight = " + stage.stageHeight);
 	}

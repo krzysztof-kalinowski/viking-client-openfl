@@ -18,8 +18,8 @@
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
-	<assets path="assets/img" rename="img" />
-	<assets path="assets/area" rename="area" />
+	<assets path="assets/test/img" rename="img" />
+	<assets path="assets/test/area" rename="area" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->
