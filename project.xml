@@ -16,11 +16,13 @@
 	<!-- classpath, haxe libs -->
 	<source path="src" />
 	<haxelib name="openfl" />
-	
+	<haxelib name="actuate" />
+
 	<!-- assets -->
+	<assets path="bin/flash/bin/assets" rename="assets" unless="flash" />
 	<!--<icon path="assets/openfl.svg" />-->
-	<!--<assets path="assets/test/img" rename="img" />-->
-	<!--<assets path="assets/test/area" rename="area" />-->
+	
+	<!-- https://lime.software/docs/project-files/xml-format/ -->
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

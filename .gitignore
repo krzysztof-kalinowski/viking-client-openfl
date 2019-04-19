@@ -1,1 +1,3 @@
-bin
+bin/flash/haxe
+bin/flash/obj
+bin/html5
