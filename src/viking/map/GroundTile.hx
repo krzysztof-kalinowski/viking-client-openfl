@@ -33,7 +33,6 @@ class GroundTile extends Sprite
 	
 	private function load(path:String):Void 
 	{
-		trace("GroundTile load path = "+path);
 		_loader = new Loader();
 		_loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
 		_loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompleteHandler);

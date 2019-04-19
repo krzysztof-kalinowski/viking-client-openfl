@@ -19,8 +19,7 @@
 	<haxelib name="actuate" />
 
 	<!-- assets -->
-	<assets path="bin/flash/bin/assets" rename="assets" unless="flash" />
-	<!--<icon path="assets/openfl.svg" />-->
+	<assets path="bin/flash/bin/assets" rename="assets" unless="flash" /> <!-- main assets folder now is in flash -->
 	
 	<!-- https://lime.software/docs/project-files/xml-format/ -->
 	
