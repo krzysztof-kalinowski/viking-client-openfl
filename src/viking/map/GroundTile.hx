@@ -7,12 +7,13 @@ import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.net.URLRequest;
 import viking.config.Path;
+import viking.core.Disposable;
 
 /**
  * ...
  * @author Krzysztof Kalinowski
  */
-class GroundTile extends Sprite 
+class GroundTile extends Sprite implements Disposable
 {
 
 	@:isVar public var column(get, null):Int;

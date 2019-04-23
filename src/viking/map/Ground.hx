@@ -2,12 +2,13 @@ package viking.map;
 
 import openfl.display.Sprite;
 import viking.config.Settings;
+import viking.core.Disposable;
 
 /**
  * ...
  * @author Krzysztof Kalinowski
  */
-class Ground extends Sprite 
+class Ground extends Sprite implements Disposable
 {
 	private var _groundObjects:Array<GroundTile>;
 	public function new() 

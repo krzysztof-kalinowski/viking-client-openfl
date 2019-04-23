@@ -6,15 +6,20 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.net.URLRequest;
+import openfl.text.TextField;
 import viking.config.Path;
+import viking.core.Disposable;
 
 /**
  * ...
  * @author Krzysztof Kalinowski
  */
-class Team extends Sprite 
+class Team extends Sprite implements Disposable
 {
 	private var _teamModel:TeamModel;
+	
+	private var _label:TextField;
+	
 	public function new(teamModel:TeamModel):Void 
 	{
 		super();
@@ -54,6 +59,11 @@ class Team extends Sprite
 	private function ioErrorHandler(e:IOErrorEvent):Void 
 	{
 		trace("Team IOERROR = "+e.text);
+	}
+	
+	public function dispose()
+	{
+		
 	}
 	
 }

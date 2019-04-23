@@ -1,9 +1,9 @@
 package viking.map;
 
 import flash.geom.Point;
-import openfl.display.DisplayObjectContainer;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
+import viking.core.Disposable;
 import viking.team.Team;
 import viking.team.TeamModel;
 
@@ -11,7 +11,7 @@ import viking.team.TeamModel;
  * ...
  * @author Krzysztof Kalinowski
  */
-class Map extends Sprite 
+class Map extends Sprite implements Disposable
 {
 	private var _groundView:Ground;
 	
@@ -57,6 +57,11 @@ class Map extends Sprite
 		
 		CoordinatesHelper.getTile(_point, e.localX, e.localY, row, col);
 		//clicked.dispatch(_point.x, _point.y);
+	}
+	
+	public function dispose()
+	{
+		
 	}
 	
 }

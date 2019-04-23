@@ -1,4 +1,5 @@
 package viking.map;
+import openfl.display.DisplayObjectContainer;
 
 /**
  * ...
@@ -8,7 +9,10 @@ class MapManager
 {
 
 	private static var _instance:MapManager;
+	
 	public var map:Map;
+	
+	private var _gameContainer:DisplayObjectContainer;
 	
 	public function new() 
 	{
@@ -19,6 +23,16 @@ class MapManager
 	{
 		if (_instance == null) _instance = new MapManager();
 		return _instance;
+	}
+	
+	public function init(gameContainer:DisplayObjectContainer)
+	{
+		_gameContainer = gameContainer;
+	}
+	
+	public function onEnterNewArea():Void
+	{
+		
 	}
 	
 	
